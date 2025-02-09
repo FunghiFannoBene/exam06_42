@@ -58,10 +58,10 @@ int main(int ac, char **av)
 		if(FD_ISSET(serverfd, &rd))
 		{
 			ok(clientfd = accept(serverfd, (struct sockaddr *)&cli, &len));
+			maxfd = clientfd > maxfd ? clientfd : maxfd;
 			sprintf(msg, "server: client %d just arrived\n", clients[clientfd] = id++);
 			FD_SET(clientfd, &current);
 			send_to_all(clientfd);
-			maxfd = clientfd > maxfd ? clientfd : maxfd;
 			continue;
 		}
 
