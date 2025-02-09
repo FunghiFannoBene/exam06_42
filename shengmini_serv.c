@@ -80,7 +80,7 @@ int main(int ac, char **av)
 					close(fd);
 				}
 				else
-					sprintf(msg, "client %d : %s",  clients[fd], buff);
+					sprintf(msg, "client %d: %s",  clients[fd], buff);
 				send_to_all(fd);
 			}
 		}
